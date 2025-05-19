@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="LibrarieModelStoreContainer" CdmEntityContainer="LibrarieEntities">
+    <EntitySetMapping Name="Autoris">
+      <EntityTypeMapping TypeName="LibrarieModel.Autori">
+        <MappingFragment StoreEntitySet="Autori">
+          <ScalarProperty Name="Cod_autor" ColumnName="Cod_autor" />
+          <ScalarProperty Name="Nume" ColumnName="Nume" />
+          <ScalarProperty Name="Nationalitate" ColumnName="Nationalitate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cartes">
+      <EntityTypeMapping TypeName="LibrarieModel.Carte">
+        <MappingFragment StoreEntitySet="Carte">
+          <ScalarProperty Name="Cod_carte" ColumnName="Cod_carte" />
+          <ScalarProperty Name="Titlu" ColumnName="Titlu" />
+          <ScalarProperty Name="Cod_autor" ColumnName="Cod_autor" />
+          <ScalarProperty Name="Cod_gen" ColumnName="Cod_gen" />
+          <ScalarProperty Name="Cod_edit" ColumnName="Cod_edit" />
+          <ScalarProperty Name="Descriere" ColumnName="Descriere" />
+          <ScalarProperty Name="Recenzie" ColumnName="Recenzie" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Conts">
+      <EntityTypeMapping TypeName="LibrarieModel.Cont">
+        <MappingFragment StoreEntitySet="Cont">
+          <ScalarProperty Name="Cod_cont" ColumnName="Cod_cont" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Parola" ColumnName="Parola" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cos">
+      <EntityTypeMapping TypeName="LibrarieModel.Co">
+        <MappingFragment StoreEntitySet="Cos">
+          <ScalarProperty Name="ID_cos" ColumnName="ID_cos" />
+          <ScalarProperty Name="Cod_cont" ColumnName="Cod_cont" />
+          <ScalarProperty Name="Cod_carte" ColumnName="Cod_carte" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Edituras">
+      <EntityTypeMapping TypeName="LibrarieModel.Editura">
+        <MappingFragment StoreEntitySet="Editura">
+          <ScalarProperty Name="Cod_edit" ColumnName="Cod_edit" />
+          <ScalarProperty Name="Nume" ColumnName="Nume" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Gens">
+      <EntityTypeMapping TypeName="LibrarieModel.Gen">
+        <MappingFragment StoreEntitySet="Gen">
+          <ScalarProperty Name="Cod_gen" ColumnName="Cod_gen" />
+          <ScalarProperty Name="Nume" ColumnName="Nume" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vedere_Carti">
+      <EntityTypeMapping TypeName="LibrarieModel.Vedere_Carti">
+        <MappingFragment StoreEntitySet="Vedere_Carti">
+          <ScalarProperty Name="Cod_carte" ColumnName="Cod_carte" />
+          <ScalarProperty Name="Titlu_Carte" ColumnName="Titlu_Carte" />
+          <ScalarProperty Name="Autor" ColumnName="Autor" />
+          <ScalarProperty Name="Gen" ColumnName="Gen" />
+          <ScalarProperty Name="Editura" ColumnName="Editura" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vedere_Cos">
+      <EntityTypeMapping TypeName="LibrarieModel.Vedere_Cos">
+        <MappingFragment StoreEntitySet="Vedere_Cos">
+          <ScalarProperty Name="ID_cos" ColumnName="ID_cos" />
+          <ScalarProperty Name="Email_Utilizator" ColumnName="Email_Utilizator" />
+          <ScalarProperty Name="Titlu_Carte" ColumnName="Titlu_Carte" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,474 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="LibrarieModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Autori">
+          <Key>
+            <PropertyRef Name="Cod_autor" />
+          </Key>
+          <Property Name="Cod_autor" Type="int" Nullable="false" />
+          <Property Name="Nume" Type="text" Nullable="false" />
+          <Property Name="Nationalitate" Type="text" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Carte">
+          <Key>
+            <PropertyRef Name="Cod_carte" />
+          </Key>
+          <Property Name="Cod_carte" Type="int" Nullable="false" />
+          <Property Name="Titlu" Type="nvarchar" MaxLength="255" />
+          <Property Name="Cod_autor" Type="int" Nullable="false" />
+          <Property Name="Cod_gen" Type="int" Nullable="false" />
+          <Property Name="Cod_edit" Type="int" Nullable="false" />
+          <Property Name="Descriere" Type="varchar(max)" />
+          <Property Name="Recenzie" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="Cont">
+          <Key>
+            <PropertyRef Name="Cod_cont" />
+          </Key>
+          <Property Name="Cod_cont" Type="int" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="255" />
+          <Property Name="Parola" Type="text" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Cos">
+          <Key>
+            <PropertyRef Name="ID_cos" />
+          </Key>
+          <Property Name="ID_cos" Type="int" Nullable="false" />
+          <Property Name="Cod_cont" Type="int" Nullable="false" />
+          <Property Name="Cod_carte" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Editura">
+          <Key>
+            <PropertyRef Name="Cod_edit" />
+          </Key>
+          <Property Name="Cod_edit" Type="int" Nullable="false" />
+          <Property Name="Nume" Type="text" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Gen">
+          <Key>
+            <PropertyRef Name="Cod_gen" />
+          </Key>
+          <Property Name="Cod_gen" Type="int" Nullable="false" />
+          <Property Name="Nume" Type="text" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Librarie.dbo.Vedere_Carti' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Vedere_Carti">
+          <Key>
+            <PropertyRef Name="Cod_carte" />
+            <PropertyRef Name="Titlu_Carte" />
+            <PropertyRef Name="Autor" />
+            <PropertyRef Name="Gen" />
+            <PropertyRef Name="Editura" />
+          </Key>
+          <Property Name="Cod_carte" Type="int" Nullable="false" />
+          <Property Name="Titlu_Carte" Type="text" Nullable="false" />
+          <Property Name="Autor" Type="text" Nullable="false" />
+          <Property Name="Gen" Type="text" Nullable="false" />
+          <Property Name="Editura" Type="text" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Librarie.dbo.Vedere_Cos' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Vedere_Cos">
+          <Key>
+            <PropertyRef Name="ID_cos" />
+            <PropertyRef Name="Email_Utilizator" />
+            <PropertyRef Name="Titlu_Carte" />
+          </Key>
+          <Property Name="ID_cos" Type="int" Nullable="false" />
+          <Property Name="Email_Utilizator" Type="text" Nullable="false" />
+          <Property Name="Titlu_Carte" Type="text" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Carte__Cod_autor__3D5E1FD2">
+          <End Role="Autori" Type="Self.Autori" Multiplicity="1" />
+          <End Role="Carte" Type="Self.Carte" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Autori">
+              <PropertyRef Name="Cod_autor" />
+            </Principal>
+            <Dependent Role="Carte">
+              <PropertyRef Name="Cod_autor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Carte__Cod_edit__3F466844">
+          <End Role="Editura" Type="Self.Editura" Multiplicity="1" />
+          <End Role="Carte" Type="Self.Carte" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Editura">
+              <PropertyRef Name="Cod_edit" />
+            </Principal>
+            <Dependent Role="Carte">
+              <PropertyRef Name="Cod_edit" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Carte__Cod_gen__3E52440B">
+          <End Role="Gen" Type="Self.Gen" Multiplicity="1" />
+          <End Role="Carte" Type="Self.Carte" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gen">
+              <PropertyRef Name="Cod_gen" />
+            </Principal>
+            <Dependent Role="Carte">
+              <PropertyRef Name="Cod_gen" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Cos__Cod_carte__440B1D61">
+          <End Role="Carte" Type="Self.Carte" Multiplicity="1" />
+          <End Role="Cos" Type="Self.Cos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Carte">
+              <PropertyRef Name="Cod_carte" />
+            </Principal>
+            <Dependent Role="Cos">
+              <PropertyRef Name="Cod_carte" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Cos__Cod_cont__44FF419A">
+          <End Role="Cont" Type="Self.Cont" Multiplicity="1" />
+          <End Role="Cos" Type="Self.Cos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cont">
+              <PropertyRef Name="Cod_cont" />
+            </Principal>
+            <Dependent Role="Cos">
+              <PropertyRef Name="Cod_cont" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="LibrarieModelStoreContainer">
+          <EntitySet Name="Autori" EntityType="Self.Autori" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Carte" EntityType="Self.Carte" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cont" EntityType="Self.Cont" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cos" EntityType="Self.Cos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Editura" EntityType="Self.Editura" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Gen" EntityType="Self.Gen" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Vedere_Carti" EntityType="Self.Vedere_Carti" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[Vedere_Carti].[Cod_carte] AS [Cod_carte], 
+[Vedere_Carti].[Titlu_Carte] AS [Titlu_Carte], 
+[Vedere_Carti].[Autor] AS [Autor], 
+[Vedere_Carti].[Gen] AS [Gen], 
+[Vedere_Carti].[Editura] AS [Editura]
+FROM [dbo].[Vedere_Carti] AS [Vedere_Carti]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Vedere_Cos" EntityType="Self.Vedere_Cos" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[Vedere_Cos].[ID_cos] AS [ID_cos], 
+[Vedere_Cos].[Email_Utilizator] AS [Email_Utilizator], 
+[Vedere_Cos].[Titlu_Carte] AS [Titlu_Carte]
+FROM [dbo].[Vedere_Cos] AS [Vedere_Cos]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK__Carte__Cod_autor__3D5E1FD2" Association="Self.FK__Carte__Cod_autor__3D5E1FD2">
+            <End Role="Autori" EntitySet="Autori" />
+            <End Role="Carte" EntitySet="Carte" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Carte__Cod_edit__3F466844" Association="Self.FK__Carte__Cod_edit__3F466844">
+            <End Role="Editura" EntitySet="Editura" />
+            <End Role="Carte" EntitySet="Carte" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Carte__Cod_gen__3E52440B" Association="Self.FK__Carte__Cod_gen__3E52440B">
+            <End Role="Gen" EntitySet="Gen" />
+            <End Role="Carte" EntitySet="Carte" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Cos__Cod_carte__440B1D61" Association="Self.FK__Cos__Cod_carte__440B1D61">
+            <End Role="Carte" EntitySet="Carte" />
+            <End Role="Cos" EntitySet="Cos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Cos__Cod_cont__44FF419A" Association="Self.FK__Cos__Cod_cont__44FF419A">
+            <End Role="Cont" EntitySet="Cont" />
+            <End Role="Cos" EntitySet="Cos" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="LibrarieModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Autori">
+          <Key>
+            <PropertyRef Name="Cod_autor" />
+          </Key>
+          <Property Name="Cod_autor" Type="Int32" Nullable="false" />
+          <Property Name="Nume" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nationalitate" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Cartes" Relationship="Self.FK__Carte__Cod_autor__3D5E1FD2" FromRole="Autori" ToRole="Carte" />
+        </EntityType>
+        <EntityType Name="Carte">
+          <Key>
+            <PropertyRef Name="Cod_carte" />
+          </Key>
+          <Property Name="Cod_carte" Type="Int32" Nullable="false" />
+          <Property Name="Titlu" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Cod_autor" Type="Int32" Nullable="false" />
+          <Property Name="Cod_gen" Type="Int32" Nullable="false" />
+          <Property Name="Cod_edit" Type="Int32" Nullable="false" />
+          <Property Name="Descriere" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Recenzie" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Autori" Relationship="Self.FK__Carte__Cod_autor__3D5E1FD2" FromRole="Carte" ToRole="Autori" />
+          <NavigationProperty Name="Editura" Relationship="Self.FK__Carte__Cod_edit__3F466844" FromRole="Carte" ToRole="Editura" />
+          <NavigationProperty Name="Gen" Relationship="Self.FK__Carte__Cod_gen__3E52440B" FromRole="Carte" ToRole="Gen" />
+          <NavigationProperty Name="Cos" Relationship="Self.FK__Cos__Cod_carte__440B1D61" FromRole="Carte" ToRole="Cos" />
+        </EntityType>
+        <EntityType Name="Cont">
+          <Key>
+            <PropertyRef Name="Cod_cont" />
+          </Key>
+          <Property Name="Cod_cont" Type="Int32" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Parola" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Cos" Relationship="Self.FK__Cos__Cod_cont__44FF419A" FromRole="Cont" ToRole="Cos" />
+        </EntityType>
+        <EntityType Name="Co">
+          <Key>
+            <PropertyRef Name="ID_cos" />
+          </Key>
+          <Property Name="ID_cos" Type="Int32" Nullable="false" />
+          <Property Name="Cod_cont" Type="Int32" Nullable="false" />
+          <Property Name="Cod_carte" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Carte" Relationship="Self.FK__Cos__Cod_carte__440B1D61" FromRole="Cos" ToRole="Carte" />
+          <NavigationProperty Name="Cont" Relationship="Self.FK__Cos__Cod_cont__44FF419A" FromRole="Cos" ToRole="Cont" />
+        </EntityType>
+        <EntityType Name="Editura">
+          <Key>
+            <PropertyRef Name="Cod_edit" />
+          </Key>
+          <Property Name="Cod_edit" Type="Int32" Nullable="false" />
+          <Property Name="Nume" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Cartes" Relationship="Self.FK__Carte__Cod_edit__3F466844" FromRole="Editura" ToRole="Carte" />
+        </EntityType>
+        <EntityType Name="Gen">
+          <Key>
+            <PropertyRef Name="Cod_gen" />
+          </Key>
+          <Property Name="Cod_gen" Type="Int32" Nullable="false" />
+          <Property Name="Nume" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Cartes" Relationship="Self.FK__Carte__Cod_gen__3E52440B" FromRole="Gen" ToRole="Carte" />
+        </EntityType>
+        <EntityType Name="Vedere_Carti">
+          <Key>
+            <PropertyRef Name="Cod_carte" />
+            <PropertyRef Name="Titlu_Carte" />
+            <PropertyRef Name="Autor" />
+            <PropertyRef Name="Gen" />
+            <PropertyRef Name="Editura" />
+          </Key>
+          <Property Name="Cod_carte" Type="Int32" Nullable="false" />
+          <Property Name="Titlu_Carte" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Autor" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Gen" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Editura" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Vedere_Cos">
+          <Key>
+            <PropertyRef Name="ID_cos" />
+            <PropertyRef Name="Email_Utilizator" />
+            <PropertyRef Name="Titlu_Carte" />
+          </Key>
+          <Property Name="ID_cos" Type="Int32" Nullable="false" />
+          <Property Name="Email_Utilizator" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Titlu_Carte" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Carte__Cod_autor__3D5E1FD2">
+          <End Role="Autori" Type="Self.Autori" Multiplicity="1" />
+          <End Role="Carte" Type="Self.Carte" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Autori">
+              <PropertyRef Name="Cod_autor" />
+            </Principal>
+            <Dependent Role="Carte">
+              <PropertyRef Name="Cod_autor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Carte__Cod_edit__3F466844">
+          <End Role="Editura" Type="Self.Editura" Multiplicity="1" />
+          <End Role="Carte" Type="Self.Carte" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Editura">
+              <PropertyRef Name="Cod_edit" />
+            </Principal>
+            <Dependent Role="Carte">
+              <PropertyRef Name="Cod_edit" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Carte__Cod_gen__3E52440B">
+          <End Role="Gen" Type="Self.Gen" Multiplicity="1" />
+          <End Role="Carte" Type="Self.Carte" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gen">
+              <PropertyRef Name="Cod_gen" />
+            </Principal>
+            <Dependent Role="Carte">
+              <PropertyRef Name="Cod_gen" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Cos__Cod_carte__440B1D61">
+          <End Role="Carte" Type="Self.Carte" Multiplicity="1" />
+          <End Role="Cos" Type="Self.Co" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Carte">
+              <PropertyRef Name="Cod_carte" />
+            </Principal>
+            <Dependent Role="Cos">
+              <PropertyRef Name="Cod_carte" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Cos__Cod_cont__44FF419A">
+          <End Role="Cont" Type="Self.Cont" Multiplicity="1" />
+          <End Role="Cos" Type="Self.Co" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cont">
+              <PropertyRef Name="Cod_cont" />
+            </Principal>
+            <Dependent Role="Cos">
+              <PropertyRef Name="Cod_cont" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="LibrarieEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Autoris" EntityType="Self.Autori" />
+          <EntitySet Name="Cartes" EntityType="Self.Carte" />
+          <EntitySet Name="Conts" EntityType="Self.Cont" />
+          <EntitySet Name="Cos" EntityType="Self.Co" />
+          <EntitySet Name="Edituras" EntityType="Self.Editura" />
+          <EntitySet Name="Gens" EntityType="Self.Gen" />
+          <EntitySet Name="Vedere_Carti" EntityType="Self.Vedere_Carti" />
+          <EntitySet Name="Vedere_Cos" EntityType="Self.Vedere_Cos" />
+          <AssociationSet Name="FK__Carte__Cod_autor__3D5E1FD2" Association="Self.FK__Carte__Cod_autor__3D5E1FD2">
+            <End Role="Autori" EntitySet="Autoris" />
+            <End Role="Carte" EntitySet="Cartes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Carte__Cod_edit__3F466844" Association="Self.FK__Carte__Cod_edit__3F466844">
+            <End Role="Editura" EntitySet="Edituras" />
+            <End Role="Carte" EntitySet="Cartes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Carte__Cod_gen__3E52440B" Association="Self.FK__Carte__Cod_gen__3E52440B">
+            <End Role="Gen" EntitySet="Gens" />
+            <End Role="Carte" EntitySet="Cartes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Cos__Cod_carte__440B1D61" Association="Self.FK__Cos__Cod_carte__440B1D61">
+            <End Role="Carte" EntitySet="Cartes" />
+            <End Role="Cos" EntitySet="Cos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Cos__Cod_cont__44FF419A" Association="Self.FK__Cos__Cod_cont__44FF419A">
+            <End Role="Cont" EntitySet="Conts" />
+            <End Role="Cos" EntitySet="Cos" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="LibrarieModelStoreContainer" CdmEntityContainer="LibrarieEntities">
+          <EntitySetMapping Name="Autoris">
+            <EntityTypeMapping TypeName="LibrarieModel.Autori">
+              <MappingFragment StoreEntitySet="Autori">
+                <ScalarProperty Name="Cod_autor" ColumnName="Cod_autor" />
+                <ScalarProperty Name="Nume" ColumnName="Nume" />
+                <ScalarProperty Name="Nationalitate" ColumnName="Nationalitate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cartes">
+            <EntityTypeMapping TypeName="LibrarieModel.Carte">
+              <MappingFragment StoreEntitySet="Carte">
+                <ScalarProperty Name="Cod_carte" ColumnName="Cod_carte" />
+                <ScalarProperty Name="Titlu" ColumnName="Titlu" />
+                <ScalarProperty Name="Cod_autor" ColumnName="Cod_autor" />
+                <ScalarProperty Name="Cod_gen" ColumnName="Cod_gen" />
+                <ScalarProperty Name="Cod_edit" ColumnName="Cod_edit" />
+                <ScalarProperty Name="Descriere" ColumnName="Descriere" />
+                <ScalarProperty Name="Recenzie" ColumnName="Recenzie" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Conts">
+            <EntityTypeMapping TypeName="LibrarieModel.Cont">
+              <MappingFragment StoreEntitySet="Cont">
+                <ScalarProperty Name="Cod_cont" ColumnName="Cod_cont" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Parola" ColumnName="Parola" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cos">
+            <EntityTypeMapping TypeName="LibrarieModel.Co">
+              <MappingFragment StoreEntitySet="Cos">
+                <ScalarProperty Name="ID_cos" ColumnName="ID_cos" />
+                <ScalarProperty Name="Cod_cont" ColumnName="Cod_cont" />
+                <ScalarProperty Name="Cod_carte" ColumnName="Cod_carte" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Edituras">
+            <EntityTypeMapping TypeName="LibrarieModel.Editura">
+              <MappingFragment StoreEntitySet="Editura">
+                <ScalarProperty Name="Cod_edit" ColumnName="Cod_edit" />
+                <ScalarProperty Name="Nume" ColumnName="Nume" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Gens">
+            <EntityTypeMapping TypeName="LibrarieModel.Gen">
+              <MappingFragment StoreEntitySet="Gen">
+                <ScalarProperty Name="Cod_gen" ColumnName="Cod_gen" />
+                <ScalarProperty Name="Nume" ColumnName="Nume" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vedere_Carti">
+            <EntityTypeMapping TypeName="LibrarieModel.Vedere_Carti">
+              <MappingFragment StoreEntitySet="Vedere_Carti">
+                <ScalarProperty Name="Cod_carte" ColumnName="Cod_carte" />
+                <ScalarProperty Name="Titlu_Carte" ColumnName="Titlu_Carte" />
+                <ScalarProperty Name="Autor" ColumnName="Autor" />
+                <ScalarProperty Name="Gen" ColumnName="Gen" />
+                <ScalarProperty Name="Editura" ColumnName="Editura" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vedere_Cos">
+            <EntityTypeMapping TypeName="LibrarieModel.Vedere_Cos">
+              <MappingFragment StoreEntitySet="Vedere_Cos">
+                <ScalarProperty Name="ID_cos" ColumnName="ID_cos" />
+                <ScalarProperty Name="Email_Utilizator" ColumnName="Email_Utilizator" />
+                <ScalarProperty Name="Titlu_Carte" ColumnName="Titlu_Carte" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

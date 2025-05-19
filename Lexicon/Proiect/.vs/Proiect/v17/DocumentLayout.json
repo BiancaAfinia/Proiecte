@@ -1,0 +1,117 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Bianca\\OneDrive\\Desktop\\Bianca\\Facultate\\ii\\Proiect__ii\\II_Proiect-rares-branch\\Proiect\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{ADB8C4DC-E540-4778-86CE-5B74FCAC8498}|Proiect\\Proiect.csproj|c:\\users\\bianca\\onedrive\\desktop\\bianca\\facultate\\ii\\proiect__ii\\ii_proiect-rares-branch\\proiect\\proiect\\paginacont.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ADB8C4DC-E540-4778-86CE-5B74FCAC8498}|Proiect\\Proiect.csproj|solutionrelative:proiect\\paginacont.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ADB8C4DC-E540-4778-86CE-5B74FCAC8498}|Proiect\\Proiect.csproj|C:\\Users\\Bianca\\OneDrive\\Desktop\\Bianca\\Facultate\\ii\\Proiect__ii\\II_Proiect-rares-branch\\Proiect\\proiect\\paginalogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ADB8C4DC-E540-4778-86CE-5B74FCAC8498}|Proiect\\Proiect.csproj|solutionrelative:proiect\\paginalogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ADB8C4DC-E540-4778-86CE-5B74FCAC8498}|Proiect\\Proiect.csproj|c:\\users\\bianca\\onedrive\\desktop\\bianca\\facultate\\ii\\proiect__ii\\ii_proiect-rares-branch\\proiect\\proiect\\paginainregistrare.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ADB8C4DC-E540-4778-86CE-5B74FCAC8498}|Proiect\\Proiect.csproj|solutionrelative:proiect\\paginainregistrare.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ADB8C4DC-E540-4778-86CE-5B74FCAC8498}|Proiect\\Proiect.csproj|C:\\Users\\Bianca\\OneDrive\\Desktop\\Bianca\\Facultate\\ii\\Proiect__ii\\II_Proiect-rares-branch\\Proiect\\proiect\\paginacarte.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ADB8C4DC-E540-4778-86CE-5B74FCAC8498}|Proiect\\Proiect.csproj|solutionrelative:proiect\\paginacarte.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ADB8C4DC-E540-4778-86CE-5B74FCAC8498}|Proiect\\Proiect.csproj|C:\\Users\\Bianca\\OneDrive\\Desktop\\Bianca\\Facultate\\ii\\Proiect__ii\\II_Proiect-rares-branch\\Proiect\\proiect\\paginaprincipala.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ADB8C4DC-E540-4778-86CE-5B74FCAC8498}|Proiect\\Proiect.csproj|solutionrelative:proiect\\paginaprincipala.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 32,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "PaginaInregistrare.cs",
+              "DocumentMoniker": "C:\\Users\\Bianca\\OneDrive\\Desktop\\Bianca\\Facultate\\ii\\Proiect__ii\\II_Proiect-rares-branch\\Proiect\\Proiect\\PaginaInregistrare.cs",
+              "RelativeDocumentMoniker": "Proiect\\PaginaInregistrare.cs",
+              "ToolTip": "C:\\Users\\Bianca\\OneDrive\\Desktop\\Bianca\\Facultate\\ii\\Proiect__ii\\II_Proiect-rares-branch\\Proiect\\Proiect\\PaginaInregistrare.cs",
+              "RelativeToolTip": "Proiect\\PaginaInregistrare.cs",
+              "ViewState": "AgIAAFwAAAAAAAAAAAAnwBoAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-19T06:54:29.633Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "PaginaCont.cs",
+              "DocumentMoniker": "C:\\Users\\Bianca\\OneDrive\\Desktop\\Bianca\\Facultate\\ii\\Proiect__ii\\II_Proiect-rares-branch\\Proiect\\Proiect\\PaginaCont.cs",
+              "RelativeDocumentMoniker": "Proiect\\PaginaCont.cs",
+              "ToolTip": "C:\\Users\\Bianca\\OneDrive\\Desktop\\Bianca\\Facultate\\ii\\Proiect__ii\\II_Proiect-rares-branch\\Proiect\\Proiect\\PaginaCont.cs",
+              "RelativeToolTip": "Proiect\\PaginaCont.cs",
+              "ViewState": "AgIAAFYAAAAAAAAAAADwvxsAAAA/AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-18T20:53:42.21Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "PaginaCarte.cs",
+              "DocumentMoniker": "C:\\Users\\Bianca\\OneDrive\\Desktop\\Bianca\\Facultate\\ii\\Proiect__ii\\II_Proiect-rares-branch\\Proiect\\Proiect\\PaginaCarte.cs",
+              "RelativeDocumentMoniker": "Proiect\\PaginaCarte.cs",
+              "ToolTip": "C:\\Users\\Bianca\\OneDrive\\Desktop\\Bianca\\Facultate\\ii\\Proiect__ii\\II_Proiect-rares-branch\\Proiect\\Proiect\\PaginaCarte.cs",
+              "RelativeToolTip": "Proiect\\PaginaCarte.cs",
+              "ViewState": "AgIAAHkAAAAAAAAAAAAswJcAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-18T20:42:45.025Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "PaginaPrincipala.cs",
+              "DocumentMoniker": "C:\\Users\\Bianca\\OneDrive\\Desktop\\Bianca\\Facultate\\ii\\Proiect__ii\\II_Proiect-rares-branch\\Proiect\\Proiect\\PaginaPrincipala.cs",
+              "RelativeDocumentMoniker": "Proiect\\PaginaPrincipala.cs",
+              "ToolTip": "C:\\Users\\Bianca\\OneDrive\\Desktop\\Bianca\\Facultate\\ii\\Proiect__ii\\II_Proiect-rares-branch\\Proiect\\Proiect\\PaginaPrincipala.cs",
+              "RelativeToolTip": "Proiect\\PaginaPrincipala.cs",
+              "ViewState": "AgIAAKgAAAAAAAAAAAAAwLwAAABDAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-18T20:19:51.041Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "PaginaLogin.cs",
+              "DocumentMoniker": "C:\\Users\\Bianca\\OneDrive\\Desktop\\Bianca\\Facultate\\ii\\Proiect__ii\\II_Proiect-rares-branch\\Proiect\\Proiect\\PaginaLogin.cs",
+              "RelativeDocumentMoniker": "Proiect\\PaginaLogin.cs",
+              "ToolTip": "C:\\Users\\Bianca\\OneDrive\\Desktop\\Bianca\\Facultate\\ii\\Proiect__ii\\II_Proiect-rares-branch\\Proiect\\Proiect\\PaginaLogin.cs",
+              "RelativeToolTip": "Proiect\\PaginaLogin.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAswDIAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-09T08:49:21.026Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
